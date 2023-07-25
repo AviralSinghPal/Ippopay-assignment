@@ -4,7 +4,7 @@ function minStepsToMakePasswordStrong(password) {
   let missingConditions = 3; 
   if (password.length < 6) {
     steps += 6 - password.length;
-    if(password.length < 4) return 6-password.length;
+    if(password.length <= 4) return 6-password.length;
   }
   if (/[a-z]/.test(password)) {
     missingConditions--;
@@ -18,7 +18,6 @@ function minStepsToMakePasswordStrong(password) {
     missingConditions--;
   }
 
-  if(missingConditions == 1 && password.length == 5) return steps;
   steps += missingConditions;
 
   
